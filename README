@@ -1,0 +1,12 @@
+This is a simple Safari extension for easy access to the tool at http://mdznr.com/passcode
+
+29 January 2012
+Added:
+Basic functionality working
+
+Known Bugs:
+It's not pretty - still contains lots of messy code
+Does not hide password while typing
+Uses Javascript popups
+Does not autofill into passcode field
+Does not autofill domain field

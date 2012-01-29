@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Passcode Generator</title>
+	<script type="text/javascript" src="crypto-sha256.js" defer></script>
+	<script type="text/javascript" charset="utf-8">
+	
+		function hash(domain, password) {
+			var hash = Crypto.SHA256(domain + password);
+			return hash.substr(0,16);
+		}
+
+		function performCommand(event) {
+			if (event.command === "encrypt") {
+			
+				var domain = prompt("Domain:", "");
+				var password = prompt("Password:", "");
+				var generatedHash = hash(domain, password);
+				prompt("Your passcode is:", generatedHash);
+				// document.getElementById("username").value = generatedHash;
+			}
+		}
+
+		function validateCommand(event) {
+			if (event.command === "encrypt") {
+				// Disable the button if there is no URL loaded in the tab.
+				event.target.disabled = !event.target.browserWindow.activeTab.url;
+			}
+		}
+ 
+// if event handlers are in the global HTML page,
+// register with application:
+safari.application.addEventListener("command", performCommand, true);
+safari.application.addEventListener("validate", validateCommand, true);
+</script>
+asdfasdfdfs
+</head>
+<body>
+</body>
+</html>
