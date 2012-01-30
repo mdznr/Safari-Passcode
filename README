@@ -1,12 +1,11 @@
 Safari Passcode
 by Matt Zanchelli
 
-A simple Safari extension for easy access to the Passcode Generator (http://mdznr.com/passcode)
+A simple Safari extension for easy access to the Passcode Generator (http://mdznr.com/passcode and originally https://xphysics.net/passcode_generator.php)
 
-29 January 2012
-To Do:
-Clean up code
-Hide password while typing
-Not use Javascript popups
-Autofill into passcode field
-Autofill domain field
+To Do List:
+	Clean up code
+	Hide password while typing
+	Not use Javascript popups
+	Autofill into passcode field
+	Autofill domain field
