@@ -30,11 +30,11 @@
 				<key>Image</key>
 				<string>tabicon.png</string>
 				<key>Label</key>
-				<string>Hello</string>
+				<string>Generate Passcode</string>
 				<key>Palette Label</key>
-				<string>Hello</string>
+				<string>Generate Passcode</string>
 				<key>Tool Tip</key>
-				<string>Hello World</string>
+				<string>Passcode</string>
 			</dict>
 		</array>
 	</dict>
@@ -58,6 +58,6 @@
 		</dict>
 	</dict>
 	<key>Website</key>
-	<string>http://mdznr.com/</string>
+	<string>http://mdznr.com/passcode</string>
 </dict>
 </plist>

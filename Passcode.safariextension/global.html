@@ -12,9 +12,16 @@
 
 		function performCommand(event) {
 			if (event.command === "encrypt") {
-			
+			alert(safari.application.activeBrowserWindow.activeTab);
 				var domain = prompt("Domain:", "");
-				var password = prompt("Password:", "");
+				if (safari.extension.secureSettings.getItem('master_password') == null)
+				{
+					var password = prompt("Password:", "");
+				}
+				else
+				{
+					var password = safari.extension.secureSettings.getItem('master_password');
+				}
 				var generatedHash = hash(domain, password);
 				prompt("Your passcode is:", generatedHash);
 				// document.getElementById("username").value = generatedHash;
@@ -33,7 +40,6 @@
 safari.application.addEventListener("command", performCommand, true);
 safari.application.addEventListener("validate", validateCommand, true);
 </script>
-asdfasdfdfs
 </head>
 <body>
 </body>
