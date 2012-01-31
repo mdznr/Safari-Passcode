@@ -5,6 +5,13 @@
 	<script type="text/javascript" src="crypto-sha256.js" defer></script>
 	<script type="text/javascript" charset="utf-8">
 	
+		function get_hostname_from_url(url) {	// Extracts domain from full URL
+		    var splat = url.split(/\/+/g)[1];
+		    var splats = new Array(splat.split("\."));
+		    alert(splats[splats.length-1]);
+		    return splat;
+		}
+	
 		function hash(domain, password) {
 			var hash = Crypto.SHA256(domain + password);
 			return hash.substr(0,16);
@@ -12,19 +19,26 @@
 
 		function performCommand(event) {
 			if (event.command === "encrypt") {
-			alert(safari.application.activeBrowserWindow.activeTab);
-				var domain = prompt("Domain:", "");
-				if (safari.extension.secureSettings.getItem('master_password') == null)
-				{
-					var password = prompt("Password:", "");
-				}
+			var auto_domain = get_hostname_from_url(safari.application.activeBrowserWindow.activeTab.url);
+			
+				// Domain
+				if (safari.extension.settings.getItem('auto_domain') == true)
+					var domain = safari.extension.settings.getItem('auto_domain');
 				else
-				{
+					var domain = prompt("Current Domain:", safari.extension.settings.getItem('auto_domain'));
+				
+				// Password
+				if (safari.extension.secureSettings.getItem('master_password') == null)
+					var password = prompt("Master Password:", "");
+				else
 					var password = safari.extension.secureSettings.getItem('master_password');
-				}
-				var generatedHash = hash(domain, password);
-				prompt("Your passcode is:", generatedHash);
-				// document.getElementById("username").value = generatedHash;
+				
+				// Generated Hash
+				var generated_hash = hash(domain, password);
+				if (safari.extension.settings.getItem('auto_fill') == true)
+					prompt("Your generated passcode is:", generated_hash);
+				else
+					prompt("Your generated passcode is:", generated_hash);	// Automatically fill in password fields
 			}
 		}
 
