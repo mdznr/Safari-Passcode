@@ -5,9 +5,9 @@
 	<script type="text/javascript" src="crypto-sha256.js" defer></script>
 	<script type="text/javascript" charset="utf-8">
 	
-		function get_hostname_from_url(url) {	// Extracts domain from full URL
-		    var splat = url.split(/\/+/g)[1];
-		    return splat;
+		function hostname_from_url(url) {	// Extracts domain from full URL
+		    var splat = url.split(/\/+/g)[1].split(".");
+		    return splat[splat.length-2];
 		}
 	
 		function hash(domain, password) {
@@ -17,8 +17,7 @@
 
 		function performCommand(event) {
 			if (event.command === "encrypt") {
-			var full_url = get_hostname_from_url(safari.application.activeBrowserWindow.activeTab.url).split(".");
-			var domain = full_url[full_url.length-2];
+			var domain = hostname_from_url(safari.application.activeBrowserWindow.activeTab.url);
 			
 				// Domain
 				if (safari.extension.settings.getItem('auto_domain') == false)
