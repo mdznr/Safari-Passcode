@@ -26,13 +26,13 @@
 	</dict>
 	<dict>
 		<key>DefaultValue</key>
-		<true/>
+		<false/>
 		<key>Key</key>
 		<string>auto_fill</string>
 		<key>Title</key>
 		<string>Automatically fill password field</string>
 		<key>Type</key>
-		<string>CheckBox</string>
+		<string>Hidden</string>
 	</dict>
 </array>
 </plist>

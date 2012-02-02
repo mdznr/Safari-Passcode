@@ -7,8 +7,6 @@
 	
 		function get_hostname_from_url(url) {	// Extracts domain from full URL
 		    var splat = url.split(/\/+/g)[1];
-		    var splats = new Array(splat.split("\."));
-		    // alert(splats[splats.length-1]);
 		    return splat;
 		}
 	
@@ -19,13 +17,12 @@
 
 		function performCommand(event) {
 			if (event.command === "encrypt") {
-			var auto_domain = get_hostname_from_url(safari.application.activeBrowserWindow.activeTab.url);
+			var full_url = get_hostname_from_url(safari.application.activeBrowserWindow.activeTab.url).split(".");
+			var domain = full_url[full_url.length-2];
 			
 				// Domain
-				if (safari.extension.settings.getItem('auto_domain') == true)
-					var domain = safari.extension.settings.getItem('auto_domain');
-				else
-					var domain = prompt("Current Domain:", safari.extension.settings.getItem('auto_domain'));
+				if (safari.extension.settings.getItem('auto_domain') == false)
+					var domain = prompt("Current Domain:", domain);
 				
 				// Password
 				if (safari.extension.secureSettings.getItem('master_password') == null)
@@ -35,10 +32,15 @@
 				
 				// Generated Hash
 				var generated_hash = hash(domain, password);
-				if (safari.extension.settings.getItem('auto_fill') == true)
+				if (safari.extension.settings.getItem('auto_fill') == false) {
 					prompt("Your generated passcode is:", generated_hash);
-				else
-					prompt("Your generated passcode is:", generated_hash);	// Automatically fill in password fields
+				}
+				else {
+					alert(generated_hash);	// Tests alerts
+					var pass = safari.application.activeBrowserWindwow.activeTab;
+					document.getElementById('password').value = generated_hash;
+					alert(passf);
+				}
 			}
 		}
 
