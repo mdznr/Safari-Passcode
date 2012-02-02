@@ -30,7 +30,7 @@
 				<key>Identifier</key>
 				<string>encrypt</string>
 				<key>Image</key>
-				<string>tabicon.png</string>
+				<string>key2.png</string>
 				<key>Label</key>
 				<string>Generate Passcode</string>
 				<key>Palette Label</key>
