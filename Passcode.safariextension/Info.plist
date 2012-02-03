@@ -22,19 +22,36 @@
 		<real>1048576</real>
 		<key>Global Page</key>
 		<string>global.html</string>
+		<key>Popovers</key>
+		<array>
+			<dict>
+				<key>Filename</key>
+				<string>global.html</string>
+				<key>Height</key>
+				<real>70</real>
+				<key>Identifier</key>
+				<string>prompt</string>
+				<key>Width</key>
+				<real>154</real>
+			</dict>
+		</array>
 		<key>Toolbar Items</key>
 		<array>
 			<dict>
 				<key>Command</key>
-				<string>encrypt</string>
+				<string></string>
 				<key>Identifier</key>
 				<string>encrypt</string>
 				<key>Image</key>
 				<string>key2.png</string>
+				<key>Include By Default</key>
+				<true/>
 				<key>Label</key>
 				<string>Generate Passcode</string>
 				<key>Palette Label</key>
 				<string>Generate Passcode</string>
+				<key>Popover</key>
+				<string>prompt</string>
 				<key>Tool Tip</key>
 				<string>Passcode</string>
 			</dict>

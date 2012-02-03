@@ -14,32 +14,34 @@
 			var hash = Crypto.SHA256(domain + password);
 			return hash.substr(0,16);
 		}
+		
+		function submitter() {
+			var domain = hostname_from_url(safari.application.activeBrowserWindow.activeTab.url);
+			
+			// Domain
+			if ( safari.extension.settings.getItem('auto_domain') == false )
+				var domain = prompt("Current Domain:", domain);
+				
+			// Password
+			if ( safari.extension.secureSettings.getItem('master_password') == null || safari.extension.secureSettings.getItem('master_password') == "" )
+				var password = prompt("Master Password:", "");
+			else
+				var password = safari.extension.secureSettings.getItem('master_password');
+			
+			// Generated Hash
+			var generated_hash = hash(domain, password);
+			if ( safari.extension.settings.getItem('auto_fill') == false ) {
+				safari.extension.globalPage.contentWindow.getElementById('code').value = generated_hash;
+			}
+			else {
+				safari.extension.globalPage.contentWindow.getElementById('code').value = generated_hash;
+			}
+			
+		}
 
 		function performCommand(event) {
 			if (event.command === "encrypt") {
-			var domain = hostname_from_url(safari.application.activeBrowserWindow.activeTab.url);
-			
-				// Domain
-				if (safari.extension.settings.getItem('auto_domain') == false)
-					var domain = prompt("Current Domain:", domain);
-				
-				// Password
-				if (safari.extension.secureSettings.getItem('master_password') == null)
-					var password = prompt("Master Password:", "");
-				else
-					var password = safari.extension.secureSettings.getItem('master_password');
-				
-				// Generated Hash
-				var generated_hash = hash(domain, password);
-				if (safari.extension.settings.getItem('auto_fill') == false) {
-					prompt("Your generated passcode is:", generated_hash);
-				}
-				else {
-					alert(generated_hash);	// Tests alerts
-					var pass = safari.application.activeBrowserWindwow.activeTab;
-					document.getElementById('password').value = generated_hash;
-					alert(passf);
-				}
+				continue;
 			}
 		}
 
@@ -55,7 +57,44 @@
 safari.application.addEventListener("command", performCommand, true);
 safari.application.addEventListener("validate", validateCommand, true);
 </script>
+<style>
+	body {
+		font: bold 12px/2 "Lucida Grande", "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+		color: #000;
+		padding-left: 4px;
+	}
+	
+	input {
+		width: 119px;
+		padding: 4px;
+		border: 1px solid #9f9f9f;
+		-webkit-border-radius: 2px;
+		   -moz-border-radius: 2px;
+		        border-radius: 2px;
+	}
+	input:focus {
+		border: 1px solid #9f9f9f;
+		-webkit-box-shadow: 0px 0px 0px #9f9f9f;
+		   -moz-box-shadow: 0px 0px 0px #9f9f9f;
+		outline: none;
+	}
+</style>
 </head>
 <body>
+	<form id="passcode" action="" onSubmit="submitter();" >
+	<div id="domain" style="" >
+		Current Domain:<br />
+		<input id="domain" type="text" placeholder="" />
+	</div>
+	<div id="password" style="display:;" >
+		Master Password:<br />
+		<input id="password" type="password" />
+	</div>
+	<div id="code" style="display:;" >
+		Password :<br />
+		<input id="code" type="text" />
+	</div>
+	<input type="submit"/>
+	</form>
 </body>
 </html>
