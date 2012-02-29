@@ -16,21 +16,21 @@
 		}
 
 		function performCommand(event) {
-			if (event.command === "encrypt") {
+			if ( event.command === "encrypt" ) {
 			var domain = hostname_from_url(safari.application.activeBrowserWindow.activeTab.url);
 			
 				// Domain
-				if (safari.extension.settings.getItem('auto_domain') == false)
+				if ( safari.extension.settings.getItem('auto_domain') == false )
 					var domain = prompt("Current Domain:", domain);
 				
 				// Password
-				if (safari.extension.secureSettings.getItem('master_password') == null)
+				if ( safari.extension.secureSettings.getItem('master_password') == null || safari.extension.secureSettings.getItem('master_password') == "" )
 					var password = prompt("Master Password:", "");
 				else
 					var password = safari.extension.secureSettings.getItem('master_password');
 				
 				// Generated Hash
-				var generated_hash = hash(domain, password);
+				var generated_hash = hash( domain, password );
 				if (safari.extension.settings.getItem('auto_fill') == false) {
 					prompt("Your generated passcode is:", generated_hash);
 				}
