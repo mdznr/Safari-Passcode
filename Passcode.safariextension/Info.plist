@@ -5,7 +5,7 @@
 	<key>Author</key>
 	<string>Matt Zanchelli</string>
 	<key>Builder Version</key>
-	<string>8535.18.5</string>
+	<string>8536.2.3</string>
 	<key>CFBundleDisplayName</key>
 	<string>Passcode</string>
 	<key>CFBundleIdentifier</key>
@@ -59,6 +59,8 @@
 			<string>All</string>
 		</dict>
 	</dict>
+	<key>Update Manifest URL</key>
+	<string>https://raw.github.com/mdznr/Safari-Passcode/master/manifest.plist</string>
 	<key>Website</key>
 	<string>http://mdznr.com/passcode</string>
 </dict>
