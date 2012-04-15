@@ -9,7 +9,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>Passcode</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.mdznr.passcode</string>
+	<string>com.mattzanchelli.passcode</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
