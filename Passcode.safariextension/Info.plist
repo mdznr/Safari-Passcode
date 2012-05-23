@@ -5,7 +5,7 @@
 	<key>Author</key>
 	<string>Matt Zanchelli</string>
 	<key>Builder Version</key>
-	<string>8536.2.3</string>
+	<string>8536.10.3</string>
 	<key>CFBundleDisplayName</key>
 	<string>Passcode</string>
 	<key>CFBundleIdentifier</key>
@@ -13,9 +13,9 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.1</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>1.1</string>
 	<key>Chrome</key>
 	<dict>
 		<key>Database Quota</key>
@@ -30,7 +30,7 @@
 				<key>Identifier</key>
 				<string>encrypt</string>
 				<key>Image</key>
-				<string>key2.png</string>
+				<string>key.png</string>
 				<key>Label</key>
 				<string>Generate Passcode</string>
 				<key>Palette Label</key>
