@@ -20,7 +20,7 @@
 		<key>Key</key>
 		<string>auto_domain</string>
 		<key>Title</key>
-		<string>Automatically find domain</string>
+		<string>Automatically use current domain</string>
 		<key>Type</key>
 		<string>CheckBox</string>
 	</dict>
