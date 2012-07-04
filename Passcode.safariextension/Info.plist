@@ -5,7 +5,7 @@
 	<key>Author</key>
 	<string>Matt Zanchelli</string>
 	<key>Builder Version</key>
-	<string>8536.10.3</string>
+	<string>8536.22</string>
 	<key>CFBundleDisplayName</key>
 	<string>Passcode</string>
 	<key>CFBundleIdentifier</key>
@@ -13,9 +13,9 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1</string>
+	<string>1.2</string>
 	<key>CFBundleVersion</key>
-	<string>1.1</string>
+	<string>1.2</string>
 	<key>Chrome</key>
 	<dict>
 		<key>Database Quota</key>
